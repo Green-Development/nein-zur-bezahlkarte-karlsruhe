@@ -1,0 +1,15 @@
+---
+import { SITE } from 'astrowind:config';
+import { getHomePermalink } from '~/utils/permalinks';
+import Image from "./common/Image.astro";
+import logo from '../assets/images/round-logo.webp';
+
+---
+
+<a
+  href={getHomePermalink()}
+  class="self-center ml-2 rtl:ml-0 rtl:mr-2 font-bold whitespace-nowrap"
+  aria-label="Home"
+>
+  <Image src={logo} alt="Logo" width={100}/>
+</a>
