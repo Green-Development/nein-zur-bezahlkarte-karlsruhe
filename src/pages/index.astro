@@ -6,6 +6,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import BlogLatestEvents from "../components/widgets/BlogLatestEvents.astro";
+import { getEventBlogPermalink, getPermalink } from "../utils/permalinks";
 
 const metadata = {
   title: 'Karlsruhe sagt Nein zur Bezahlkarte',
@@ -19,12 +20,12 @@ const metadata = {
   <Hero
     actions={[
 
-      {text: '<nobr>Häufige Fragen</nobr>', href: '/faq', icon: 'tabler:question-mark'},
-      {text: '<nobr>Termine</nobr>', href: '/termine', icon: 'tabler:calendar'},
+      {text: '<nobr>Häufige Fragen</nobr>', href: getPermalink('/faq'), icon: 'tabler:question-mark'},
+      {text: '<nobr>Termine</nobr>', href: getEventBlogPermalink(), icon: 'tabler:calendar'},
       {
         variant: 'primary',
         text: '<nobr>Mitmachen</nobr>',
-        href: '/mitmachen',
+        href: getPermalink('/mitmachen'),
         icon: 'tabler:exclamation-mark',
       }]}
     image={{
@@ -65,14 +66,14 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Ressourcen',
-        href: '/ressourcen',
+        href: getPermalink('/ressourcen'),
         target: '_self',
         icon: 'tabler:book',
       },
       {
         variant: 'secondary',
         text: 'FAQ',
-        href: '/faq',
+        href: getPermalink('/faq'),
         target: '_self',
         icon: 'tabler:question-mark',
       },
