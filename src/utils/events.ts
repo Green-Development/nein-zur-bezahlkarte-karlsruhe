@@ -1,3 +1,4 @@
+import { formatInTimeZone } from 'date-fns-tz'
 import type { PaginateFunction } from 'astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
@@ -65,7 +66,7 @@ const getNormalizedEvent = async (event: CollectionEntry<'events'>): Promise<Eve
 
   const title = notionTextToString(data.properties.Name.title);
   const date = new Date(rawDate.date?.start ?? new Date())
-  const time = date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0') +" Uhr"
+  const time = formatInTimeZone(date, 'Europe/Berlin', 'HH:mm') + ' Uhr'
   const location = notionTextToString(data.properties.location.rich_text);
   const image = rawImage?.files?.[0]?.type === 'file' ? rawImage.files[0].file.url : '~/assets/images/logo.webp';
   const alt = rawImage?.files?.[0]?.type === 'file' ? notionTextToString(rawImageDescription?.rich_text ?? []): 'Grünes Logo mit einer durchgestrichenen Illustration einer Bezahlkarte. Der umlaufende Text in Großbuchstaben lautet: "KARLSRUHE SAGT NEIN ZUR BEZAHLKARTE".';
