@@ -7,12 +7,12 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 Verantwortlich für den Inhalt:  
 
-Dorian Werner  
-Theodor-Rehbock-Str. 3   
-76131 Karlsruhe   
+Nein zur Bezahlkarte GbR
+Schauenburgstraße 5
+76135 Karlsruhe   
 Deutschland 
 
-E-Mail: dorian.werner+nein-zur-bezahlkarte-karlsruhe@posteo.eu  
+E-Mail: nein-zur-bezahlkarte-karlsruhe@riseup.net
 
 ## Haftungsausschluss
 
