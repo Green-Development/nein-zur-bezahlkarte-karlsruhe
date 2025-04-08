@@ -7,8 +7,8 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 Verantwortlich für den Inhalt:  
 
-Nein zur Bezahlkarte GbR
-Schauenburgstraße 5
+Nein zur Bezahlkarte GbR  
+Schauenburgstraße 5   
 76135 Karlsruhe   
 Deutschland 
 
