@@ -10,9 +10,9 @@ Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Nachfolgend informie
 ## Verantwortlicher
 
 **Verantwortlich für die Datenverarbeitung:**  
-Nein zur Bezahlkarte GbR
-Schauenburgstraße 5, 76135 Karlsruhe
-nein-zur-bezahlkarte-karlsruhe@riseup.net
+Nein zur Bezahlkarte GbR  
+Schauenburgstraße 5, 76135 Karlsruhe  
+nein-zur-bezahlkarte-karlsruhe@riseup.net  
 
 Bei Fragen zur Verarbeitung Ihrer personenbezogenen Daten können Sie uns unter der oben angegebenen E-Mail-Adresse kontaktieren.
 
