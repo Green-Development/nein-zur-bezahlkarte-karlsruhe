@@ -1,7 +1,7 @@
 site:
   name: Nein zur Bezahlkarte Karlsruhe
-  site: 'https://green-development.github.io'
-  base: '/nein-zur-bezahlkarte-karlsruhe'
+  site: 'https://nein-zur-bezahlkarte-karlsruhe.de'
+  base: '/'
   trailingSlash: false
 
   googleSiteVerificationId: false
