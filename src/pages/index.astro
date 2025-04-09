@@ -20,13 +20,13 @@ const metadata = {
   <Hero
     actions={[
 
-      {text: '<nobr>Häufige Fragen</nobr>', href: getPermalink('/faq'), icon: 'tabler:question-mark'},
       {text: '<nobr>Termine</nobr>', href: getEventBlogPermalink(), icon: 'tabler:calendar'},
+      {text: '<nobr>Mitmachen</nobr>', href: getPermalink('/mitmachen'), icon: 'tabler:users-group'},
       {
         variant: 'primary',
-        text: '<nobr>Mitmachen</nobr>',
-        href: getPermalink('/mitmachen'),
-        icon: 'tabler:exclamation-mark',
+        text: '<nobr>Spenden</nobr>',
+        href: 'https://www.goodcrowd.org/bargeld-statt-bevormundung-nein-zur-bezahlkarte',
+        icon: 'tabler:coin-euro',
       }]}
     image={{
       src: '~/assets/images/logo.webp',
