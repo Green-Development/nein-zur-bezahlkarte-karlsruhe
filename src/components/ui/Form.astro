@@ -7,14 +7,14 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
 
 <form       
   target="_self"
-  action="https://fabform.io/f/uLfMl_a"
+  action="https://formsubmit.co/1439fe29b620e2dd9e78d050ef6da9ba"
   method="POST"
   aria-label="Kontaktformular"
 >
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', value = '' }) =>
           name && (
             <div class="mb-6">
               {label && (
@@ -28,6 +28,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                 id={name}
                 autocomplete={autocomplete}
                 placeholder={placeholder}
+                value={value}
                 class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
               />
             </div>

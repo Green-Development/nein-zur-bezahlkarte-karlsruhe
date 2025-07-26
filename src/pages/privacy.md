@@ -42,13 +42,13 @@ Dabei werden keine Cookies gesetzt und keine personenbezogenen Daten wie IP-Adre
 
 ## Erhebung und Verarbeitung personenbezogener Daten
 
-### 1. **Kontaktformular (FabForm)**
+### 1. **Kontaktformular (FormSubmit)**
 
-Unser Kontaktformular wird über **FabForm** bereitgestellt. Wenn Sie das Formular nutzen, werden die von Ihnen eingegebenen Daten (z. B. Name, E-Mail-Adresse, Nachricht) an uns übermittelt.  
+Unser Kontaktformular wird über **FormSubmit** bereitgestellt. Wenn Sie das Formular nutzen, werden die von Ihnen eingegebenen Daten (z. B. Name, E-Mail-Adresse, Nachricht) an uns übermittelt.  
 - **Erhobene Daten:** Name, E-Mail-Adresse und der Inhalt Ihrer Nachricht mit Betreff.  
 - **Zweck:** Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.  
 - **Speicherdauer:** Ihre Daten werden gelöscht, sobald die Bearbeitung abgeschlossen ist, sofern keine gesetzlichen Aufbewahrungsfristen bestehen.  
-- **Empfänger:** FabForm verarbeitet die Daten nach ihrer [Datenschutzrichtlinie](https://fabform.io/privacy) und leitet sie per E-Mail an uns weiter.  
+- **Empfänger:** FormSubmit verarbeitet die Daten nach ihrer [Datenschutzrichtlinie](https://formsubmit.co/privacy.pdf) und leitet sie per E-Mail an uns weiter.  
 
 **Rechtsgrundlage:** Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung bzw. vorvertragliche Maßnahmen).
 
@@ -68,7 +68,7 @@ Wenn Sie uns per E-Mail kontaktieren, speichern wir Ihre E-Mail-Adresse sowie di
 ## Empfänger von Daten
 
 - **GitHub (USA):** Zum Hosting der Website werden Daten wie IP-Adressen und technische Verbindungsinformationen verarbeitet. GitHub hat sich zur Einhaltung der DSGVO verpflichtet und Standardvertragsklauseln implementiert.  
-- **FabForm (EU):** Zur Bereitstellung des Kontaktformulars und Verarbeitung der eingegebenen Daten.  
+- **FormSubmit (LK):** Zur Bereitstellung des Kontaktformulars und Verarbeitung der eingegebenen Daten.  
 - **Plausible (EU, selbst gehostet):** Zur Durchführung datenschutzfreundlicher Webanalysen – es werden keine personenbezogenen Daten erhoben.
 
 ---
@@ -95,7 +95,7 @@ Wir setzen technische und organisatorische Maßnahmen ein, um Ihre Daten vor unb
 
 ## Speicherdauer
 
-- **Kontaktformular (FabForm):** Daten werden gelöscht, sobald die Anfrage abgeschlossen ist, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.  
+- **Kontaktformular (FormSubmit):** Daten werden gelöscht, sobald die Anfrage abgeschlossen ist, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.  
 - **E-Mail-Kommunikation:** Daten werden gelöscht, sobald sie nicht mehr erforderlich sind, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.  
 - **Plausible:** Es werden keine personenbezogenen Daten gespeichert.
 
@@ -107,4 +107,4 @@ Wir behalten uns das Recht vor, diese Datenschutzerklärung bei Bedarf anzupasse
 
 ---
 
-*Stand: 10.04.2025*
+*Stand: 26.07.2025*
