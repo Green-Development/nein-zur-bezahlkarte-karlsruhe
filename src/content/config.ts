@@ -34,9 +34,18 @@ const faqCollection = defineCollection({
   }),
 });
 
+const exchangePlacesCollection = defineCollection({
+  loader: notionLoader(
+    {
+    auth: import.meta.env.NOTION_TOKEN,
+    database_id: import.meta.env.NOTION_EXCHANGE_PLACES_DATABASE_ID,
+  }),
+});
+
 export const collections = {
   post: postCollection,
   resources: resourcesCollection,
   events: eventsCollection,
-  faq: faqCollection
+  faq: faqCollection,
+  exchangePlaces: exchangePlacesCollection,
 };

@@ -1,0 +1,84 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+import { notionTextToString } from '../utils/utils';
+
+const metadata = {
+  title: 'Tauschorte',
+};
+
+const exchangePlacesCollection = await getCollection('exchangePlaces');
+const tauschorte = exchangePlacesCollection.map((item) => {
+  const { Name: title, Adresse: address, Öffnungszeiten: opening_hours, 'Api Name': api_key } = item.data.properties;
+  return {
+    name: notionTextToString(title.title),
+    address: notionTextToString(address.rich_text),
+    opening_hours: notionTextToString(opening_hours.rich_text),
+    api_key: notionTextToString(api_key.rich_text),
+  };
+});
+---
+
+<Layout metadata={metadata}>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8 border-b pb-4">Tauschorte</h1>
+
+    <div class="space-y-8">
+      {
+        tauschorte.map((ort) => (
+          <div class="p-6 border rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-2">{ort.name}</h2>
+            <h3 class="font-semibold mb-1">Adresse</h3>
+            <p class="mb-2">{ort.address}</p>
+
+            <div class="mb-4">
+              <h3 class="font-semibold mb-1">Öffnungszeiten</h3>
+              {ort.opening_hours}
+            </div>
+
+            <div id={`giftcards-${ort.api_key}`} class="mt-4" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <script type="module">
+    const apiURL = 'https://intern.nein-zur-bezahlkarte-karlsruhe.de/api/inventory';
+
+    try {
+      const res = await fetch(apiURL);
+      const data = await res.json();
+
+      for (const [location, info] of Object.entries(data)) {
+        const container = document.getElementById(`giftcards-${location}`);
+        if (!container || !info.gift_cards || Object.keys(info.gift_cards).length === 0) continue;
+
+        const section = document.createElement('div');
+        section.className = 'mt-4';
+
+        section.innerHTML = `
+        <h3 class="font-semibold mb-2">Verfügbare Geschenkkarten</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          ${Object.entries(info.gift_cards)
+            .map(
+              ([card, { amount, total_value }]) => `
+            <div class="border rounded-lg p-3 mb-4 shadow hover:shadow-md transition">
+              <p class="font-semibold">${card.toUpperCase()}</p>
+              <p class="mt-2">${amount} ${amount === 1 ? 'Gutschein' : 'Gutscheine'}</p>
+              <p class="mt-2">Gesamtwert: ${total_value}€</p>
+            </div>
+          `
+            )
+            .join('')}
+        </div>
+        <p class="text-sm">zuletzt aktualisiert am ${new Date(info.updated_at).toLocaleDateString()}</p>
+      `;
+
+        container.appendChild(section);
+      }
+    } catch (err) {
+      console.error('Fehler beim Laden der Geschenkkarten:', err);
+    }
+  </script>
+</Layout>
