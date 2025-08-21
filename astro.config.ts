@@ -75,8 +75,8 @@ export default defineConfig({
     domains: ['cdn.pixabay.com'],
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "**.amazonaws.com",
+        protocol: 'https',
+        hostname: '**.amazonaws.com',
       },
     ],
   },
@@ -93,4 +93,5 @@ export default defineConfig({
       },
     },
   },
+  prefetch: false,
 });
