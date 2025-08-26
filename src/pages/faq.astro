@@ -1,34 +1,37 @@
 ---
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import FAQs from "../components/widgets/FAQs.astro";
-import { getCollection } from "astro:content";
-import { notionTextToString } from "../utils/utils";
+import FAQs from '../components/widgets/FAQs.astro';
+import { getCollection } from 'astro:content';
+import { notionTextToString } from '../utils/utils';
 
 const metadata = {
   title: 'FAQ',
 };
 const faqCollection = await getCollection('faq');
-const faqItems = faqCollection.map((item) => {
-  const {
-    Name: title, answer
-  } = item.data.properties;
-  return {
-    title: notionTextToString(title.title),
-    description: notionTextToString(answer.rich_text),
-  }
-});
+const faqItems = faqCollection
+  .sort((a, b) => (a.data.properties['sort'].number ?? 99) - (b.data.properties['sort'].number ?? 99))
+  .map((item) => {
+    const { Name: title, answer } = item.data.properties;
+    return {
+      title: notionTextToString(title.title),
+      description: notionTextToString(answer.rich_text),
+    };
+  });
 ---
 
 <Layout metadata={metadata}>
-  <FAQs id="FAQ"
-        title="Fragen und Antworten"
-        subtitle="Hier findest Du Antworten auf häufig gestellte Fragen rund um die Bezahlkarte."
-        tagline="FAQs"
-        items={faqItems} 
-        columns={1}>
-  </FAQs>
-  <CallToAction id="Weitere Informationen" title="Finde weiterreichende Informationen:"
+  <FAQs
+    id="FAQ"
+    title="Fragen und Antworten"
+    subtitle="Hier findest Du Antworten auf häufig gestellte Fragen rund um die Bezahlkarte."
+    tagline="FAQs"
+    items={faqItems}
+    columns={1}
+  />
+  <CallToAction
+    id="Weitere Informationen"
+    title="Finde weiterreichende Informationen:"
     actions={[
       {
         variant: 'primary',
@@ -45,5 +48,5 @@ const faqItems = faqCollection.map((item) => {
         icon: 'tabler:book',
       },
     ]}
-  >
+  />
 </Layout>
