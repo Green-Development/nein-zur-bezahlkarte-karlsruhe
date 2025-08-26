@@ -21,9 +21,9 @@ const tauschorte = exchangePlacesCollection.map((item) => {
 
 <Layout metadata={metadata}>
   <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-8 border-b pb-4">Tauschorte</h1>
+    <h1 class="text-3xl font-bold mb-8 border-b pb-4 motion-safe:md:intersect:animate-fade">Tauschorte</h1>
 
-    <div class="space-y-8">
+    <div class="space-y-8 motion-safe:md:intersect:animate-fade">
       {
         tauschorte.map((ort) => (
           <div class="p-6 border rounded-lg shadow-md">
@@ -43,7 +43,7 @@ const tauschorte = exchangePlacesCollection.map((item) => {
     </div>
   </div>
 
-  <script type="module">
+  <script type="module" data-astro-rerun>
     const apiURL = 'https://intern.nein-zur-bezahlkarte-karlsruhe.de/api/inventory';
 
     try {
