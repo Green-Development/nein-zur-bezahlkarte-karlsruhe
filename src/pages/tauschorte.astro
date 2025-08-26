@@ -72,7 +72,7 @@ const tauschorte = exchangePlacesCollection.map((item) => {
             )
             .join('')}
         </div>
-        <p class="text-sm">zuletzt aktualisiert am ${new Date(info.updated_at).toLocaleDateString()}</p>
+        <p class="text-sm">zuletzt aktualisiert am ${new Date(info.updated_at).toLocaleDateString("de-DE")}</p>
       `;
 
         container.appendChild(section);
