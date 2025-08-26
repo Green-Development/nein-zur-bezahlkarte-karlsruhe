@@ -24,7 +24,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Ressourcen',
+      text: 'Informationen',
       links: [
         {
           text: 'Ressourcen',
