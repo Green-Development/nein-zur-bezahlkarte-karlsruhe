@@ -52,28 +52,35 @@ const tauschorte = exchangePlacesCollection.map((item) => {
 
       for (const [location, info] of Object.entries(data)) {
         const container = document.getElementById(`giftcards-${location}`);
-        if (!container || !info.gift_cards || Object.keys(info.gift_cards).length === 0) continue;
+        if (!container || !info.gift_cards) continue;
 
         const section = document.createElement('div');
         section.className = 'mt-4';
 
-        section.innerHTML = `
-        <h3 class="font-semibold mb-2">Verfügbare Geschenkkarten</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          ${Object.entries(info.gift_cards)
+        if (Object.keys(info.gift_cards).length > 0) {
+          section.innerHTML = `
+            <h3 class="font-semibold mb-2">Verfügbare Geschenkkarten</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            ${Object.entries(info.gift_cards)
             .map(
               ([card, { amount, total_value }]) => `
-            <div class="border rounded-lg p-3 mb-4 shadow hover:shadow-md transition">
-              <p class="font-semibold">${card.toUpperCase()}</p>
-              <p class="mt-2">${amount} ${amount === 1 ? 'Gutschein' : 'Gutscheine'}</p>
-              <p class="mt-2">Gesamtwert: ${total_value}€</p>
-            </div>
-          `
+              <div class="border rounded-lg p-3 mb-4 shadow hover:shadow-md transition">
+                <p class="font-semibold">${card.toUpperCase()}</p>
+                <p class="mt-2">${amount} ${amount === 1 ? 'Gutschein' : 'Gutscheine'}</p>
+                <p class="mt-2">Gesamtwert: ${total_value}€</p>
+              </div>
+            `
             )
             .join('')}
-        </div>
-        <p class="text-sm">zuletzt aktualisiert am ${new Date(info.updated_at).toLocaleDateString("de-DE")}</p>
-      `;
+            </div>
+            <p class="text-sm">zuletzt aktualisiert am ${new Date(info.updated_at).toLocaleDateString('de-DE')}</p>
+          `;
+        } else {
+          section.innerHTML = `
+            <h3 class="font-semibold mb-2">Keine Verfügbare Geschenkkarten</h3>
+            <p class="text-sm">zuletzt aktualisiert am ${new Date(info.updated_at).toLocaleDateString('de-DE')}</p>
+          `;
+        }
 
         container.appendChild(section);
       }
