@@ -11,11 +11,11 @@ export const headerData = {
       links: [
         {
           text: 'Mitmachen',
-          href: getPermalink('/mitmachen'),
+          href: getPermalink('/mitmachen/'),
         },
         {
           text: 'Tauschorte',
-          href: getPermalink('/tauschorte'),
+          href: getPermalink('/tauschorte/'),
         },
         {
           text: 'Termine',
@@ -28,17 +28,17 @@ export const headerData = {
       links: [
         {
           text: 'Ressourcen',
-          href: getPermalink('/ressourcen'),
+          href: getPermalink('/ressourcen/'),
         },
         {
           text: 'FAQ',
-          href: getPermalink('/faq'),
+          href: getPermalink('/faq/'),
         },
       ],
     },
     {
       text: 'Kontakt',
-      href: getPermalink('/kontakt'),
+      href: getPermalink('/kontakt/'),
     },
     {
       text: 'Blog',
@@ -49,8 +49,8 @@ export const headerData = {
 
 export const footerData = {
   secondaryLinks: [
-    { text: 'Datenschutzerklärung', href: getPermalink('/privacy') },
-    { text: 'Impressum', href: getPermalink('/impressum') },
+    { text: 'Datenschutzerklärung', href: getPermalink('/privacy/') },
+    { text: 'Impressum', href: getPermalink('/impressum/') },
   ],
   socialLinks: [
     {
