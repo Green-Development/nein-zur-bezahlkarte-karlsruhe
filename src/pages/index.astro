@@ -5,8 +5,8 @@ import Hero from '~/components/widgets/Hero.astro';
 
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import BlogLatestEvents from "../components/widgets/BlogLatestEvents.astro";
-import { getEventBlogPermalink, getPermalink } from "../utils/permalinks";
+import BlogLatestEvents from '../components/widgets/BlogLatestEvents.astro';
+import { getPermalink } from '../utils/permalinks';
 
 const metadata = {
   title: 'Karlsruhe sagt Nein zur Bezahlkarte',
@@ -19,18 +19,21 @@ const metadata = {
 
   <Hero
     actions={[
-
-      {text: '<nobr>Termine</nobr>', href: getEventBlogPermalink(), icon: 'tabler:calendar'},
-      {text: '<nobr>Mitmachen</nobr>', href: getPermalink('/mitmachen'), icon: 'tabler:users-group'},
+      { text: '<nobr>Mitmachen</nobr>', href: getPermalink('/mitmachen'), icon: 'tabler:users-group' },
       {
         variant: 'primary',
+        text: '<nobr>Gutscheine Tauschen</nobr>',
+        href: getPermalink('/tauschorte'),
+        icon: 'tabler:exchange',
+      },
+      {
         text: '<nobr>Spenden</nobr>',
         href: 'https://www.goodcrowd.org/bargeld-statt-bevormundung-nein-zur-bezahlkarte',
         icon: 'tabler:coin-euro',
       }]}
     image={{
       src: '~/assets/images/logo.webp',
-      alt: 'Grünes Logo mit einer durchgestrichenen Illustration einer Bezahlkarte. Der umlaufende Text in Großbuchstaben lautet: "KARLSRUHE SAGT NEIN ZUR BEZAHLKARTE".'
+      alt: 'Grünes Logo mit einer durchgestrichenen Illustration einer Bezahlkarte. Der umlaufende Text in Großbuchstaben lautet: "KARLSRUHE SAGT NEIN ZUR BEZAHLKARTE".',
     }}
   >
     <Fragment slot="title">
@@ -62,7 +65,6 @@ const metadata = {
     id="Weitere Ressourcen"
     title="Finde mehr heraus auf unserer Ressourcen oder FAQ Seite"
     actions={[
-
       {
         variant: 'primary',
         text: 'Ressourcen',
@@ -78,6 +80,5 @@ const metadata = {
         icon: 'tabler:question-mark',
       },
     ]}
-  >
-  </CallToAction>
+  />
 </Layout>
