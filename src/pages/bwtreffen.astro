@@ -1,0 +1,81 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Features2 from '../components/widgets/Features2.astro';
+import FAQs from '../components/widgets/FAQs.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '../components/ui/Button.astro';
+
+const metadata = {
+  title: 'Baden-Württemberg Vernetzungstreffen in Karlsruhe',
+  ignoreTitleTemplate: true,
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Features2
+    title="Baden-Württemberg Vernetzungstreffen"
+    subtitle="Wir laden herzlich zum Vernetzungstreffen am 7. Dezember nach Karlsruhe ein."
+    columns={4}
+    items={[
+      {
+        title: '7. Dezember 2025',
+        icon: 'tabler:calendar',
+        link: '#agenda',
+      },
+      {
+        title: '11 Uhr',
+        icon: 'tabler:clock',
+        link: '#agenda',
+      },
+      {
+        title: 'Barrio 137',
+        icon: 'tabler:home',
+        link: 'https://www.openstreetmap.org/node/12757300698',
+      },
+      {
+        title: 'Luisenstraße 31, 76137 Karlsruhe',
+        icon: 'tabler:map',
+        link: 'https://www.openstreetmap.org/directions?to=49.000798%2C+8.405598#map=18/49.000811/8.404670',
+      },
+    ]}
+  />
+  <Headline
+    title="Anreise"
+    subtitle="Das Treffen findet im linken Zentrum Barrio 137 statt.<br> Es ist ca. 13 Gehminuten (1km) vom Hauptbahnhof entfernt.<br> Die nächste Haltestelle ist Augartenstraße mit 5 Gehminuten (400m)."
+  /> b
+  <div class="flex justify-center mb-4">
+    <div class="w-full sm:w-4/5 lg:w-3/5 border-2 border-black rounded">
+      <iframe
+        width="100%"
+        height="450"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=8.395%2C48.995%2C8.415%2C49.005&marker=49.000815%2C8.405609"
+      ></iframe>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <Button
+      href="https://www.openstreetmap.org/directions?to=49.000798%2C+8.405598#map=18/49.000811/8.404670"
+      class="m-4"
+      >Open Street Maps Route
+    </Button>
+
+    <Button href="https://www.bahn.de/buchung/start#?ZO=Karlsruhe%20Hbf&hd=2025-12-07T11:00:00&hza=A" class="m-4"
+      >Bahn nach Karlsruhe
+    </Button>
+  </div>
+
+  <FAQs
+    id="agenda"
+    title="Agenda"
+    items={[
+      { title: '11 Uhr', description: 'Ankommen' },
+      { title: 'TBA', description: 'TBA' },
+    ]}
+    columns={1}
+  />
+</Layout>
