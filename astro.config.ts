@@ -24,6 +24,12 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
+  redirects: {
+    "/t": "/tauschorte",
+    "/i": "https://intern.nein-zur-bezahlkarte-karlsruhe.de/",
+    "/intern": "https://intern.nein-zur-bezahlkarte-karlsruhe.de/"
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: false,
