@@ -58,6 +58,10 @@ export const notionTextToString = (text: Array<
 >): string => {
   return text.map((t) => {
     if (t.type === "text") {
+        const { content, link } = t.text;
+        if (link?.url) {
+          return `<a href='${link.url}'>${content}</a>`;
+        }
       return t.text.content;
     } else if (t.type === "equation") {
       return `$${t.equation.expression}$`; // Represent equations in LaTeX-like syntax

@@ -27,13 +27,13 @@ const tauschorte = exchangePlacesCollection.map((item) => {
       {
         tauschorte.map((ort) => (
           <div class="p-6 border rounded-lg shadow-md">
-            <h2 class="text-2xl font-semibold mb-2">{ort.name}</h2>
+            <h2 class="text-2xl font-semibold mb-2" set:html={ort.name}></h2>
             <h3 class="font-semibold mb-1">Adresse</h3>
-            <p class="mb-2">{ort.address}</p>
+            <p class="mb-2" set:html={ort.address}>
 
             <div class="mb-4">
               <h3 class="font-semibold mb-1">Öffnungszeiten</h3>
-              {ort.opening_hours}
+              <p set:html={ort.opening_hours}></p>
             </div>
 
             <div id={`giftcards-${ort.api_key}`} class="mt-4" />
