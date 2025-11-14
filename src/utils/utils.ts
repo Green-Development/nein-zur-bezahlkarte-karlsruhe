@@ -60,7 +60,7 @@ export const notionTextToString = (text: Array<
     if (t.type === "text") {
         const { content, link } = t.text;
         if (link?.url) {
-          return `<a href='${link.url}'>${content}</a>`;
+          return `<a href='${link.url}' class="underline hover:text-green-600">${content}</a>`;
         }
       return t.text.content;
     } else if (t.type === "equation") {
