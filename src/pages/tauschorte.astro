@@ -60,14 +60,13 @@ const tauschorte = exchangePlacesCollection.map((item) => {
         if (Object.keys(info.gift_cards).length > 0) {
           section.innerHTML = `
             <h3 class="font-semibold mb-2">Verfügbare Geschenkkarten</h3>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-4">
             ${Object.entries(info.gift_cards)
             .map(
-              ([card, { amount, total_value }]) => `
+              ([card, { amount }]) => `
               <div class="border rounded-lg p-3 mb-4 shadow hover:shadow-md transition">
                 <p class="font-semibold">${card.toUpperCase()}</p>
                 <p class="mt-2">${amount} ${amount === 1 ? 'Gutschein' : 'Gutscheine'}</p>
-                <p class="mt-2">Gesamtwert: ${total_value}€</p>
               </div>
             `
             )
