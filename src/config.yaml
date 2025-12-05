@@ -89,7 +89,7 @@ apps:
 analytics:
   vendors:
     plausible:
-      api: "https://analytics.project-insanity.org/api/event"
+      api: "https://plausible.io"
       domain: 'nein-zur-bezahlkarte-karlsruhe.de'
 
 ui:
