@@ -20,12 +20,7 @@ const { center = [49, 8.4], zoom = 14, markers = [], height = '400px' } = Astro.
 </div>
 
 <script>
-  let mapInitialized = false;
-
   function initMap() {
-    if (mapInitialized) return;
-    mapInitialized = true;
-
     Promise.all([import('leaflet'), import('leaflet/dist/leaflet.css')]).then(([Leaflet]) => {
       const L = Leaflet.default;
       const el = document.getElementById('map');
@@ -42,7 +37,14 @@ const { center = [49, 8.4], zoom = 14, markers = [], height = '400px' } = Astro.
       }).addTo(map);
 
       markers.forEach(({ lat, lng, popup, link, openOnHover }: import('../widgets/Map.astro').Marker) => {
-        const marker = L.marker([lat, lng]).addTo(map);
+        const marker = L.marker([lat, lng], {
+          icon: L.icon({
+            iconUrl: '/favicon.webp',
+            iconSize: [36, 36],
+            iconAnchor: [16, 16],
+            popupAnchor: [0, -32],
+          }),
+        }).addTo(map);
 
         if (popup) {
           marker.bindPopup(popup);
@@ -62,9 +64,9 @@ const { center = [49, 8.4], zoom = 14, markers = [], height = '400px' } = Astro.
     });
   }
 
-  const mapEl = document.getElementById('map');
-
-  if (mapEl) {
+  function setupMap() {
+    const mapEl = document.getElementById('map');
+    if (!mapEl) return;
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -74,9 +76,12 @@ const { center = [49, 8.4], zoom = 14, markers = [], height = '400px' } = Astro.
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     observer.observe(mapEl);
   }
+
+  document.addEventListener('astro:page-load', setupMap);
+  document.addEventListener('astro:after-swap', setupMap);
 </script>
