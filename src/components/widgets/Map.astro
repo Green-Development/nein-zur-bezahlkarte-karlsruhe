@@ -1,0 +1,82 @@
+---
+export interface Marker {
+  lat: number;
+  lng: number;
+  link?: string;
+  popup?: string | HTMLElement;
+  openOnHover?: boolean;
+}
+
+const { center = [49, 8.4], zoom = 14, markers = [], height = '400px' } = Astro.props;
+---
+
+<div
+  id="map"
+  class="w-full h-[750px] resize overflow-hidden border rounded relative z-0"
+  data-center={JSON.stringify(center)}
+  data-zoom={zoom}
+  data-markers={JSON.stringify(markers)}
+>
+</div>
+
+<script>
+  let mapInitialized = false;
+
+  function initMap() {
+    if (mapInitialized) return;
+    mapInitialized = true;
+
+    Promise.all([import('leaflet'), import('leaflet/dist/leaflet.css')]).then(([Leaflet]) => {
+      const L = Leaflet.default;
+      const el = document.getElementById('map');
+      if (!el) return;
+
+      const center = JSON.parse(el.dataset.center || '[49, 8.4]');
+      const zoom = Number(el.dataset.zoom || 14);
+      const markers = JSON.parse(el.dataset.markers || '[]');
+
+      const map = L.map(el).setView(center, zoom);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+      }).addTo(map);
+
+      markers.forEach(({ lat, lng, popup, link, openOnHover }: import('../widgets/Map.astro').Marker) => {
+        const marker = L.marker([lat, lng]).addTo(map);
+
+        if (popup) {
+          marker.bindPopup(popup);
+        }
+
+        if (link) {
+          marker.on('click', () => {
+            window.open(link, '_self');
+          });
+        }
+
+        if (openOnHover) {
+          marker.on('mouseover', () => marker.openPopup());
+          marker.on('mouseout', () => marker.closePopup());
+        }
+      });
+    });
+  }
+
+  const mapEl = document.getElementById('map');
+
+  if (mapEl) {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            initMap();
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(mapEl);
+  }
+</script>
