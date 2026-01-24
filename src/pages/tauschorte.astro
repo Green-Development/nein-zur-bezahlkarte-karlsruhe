@@ -33,7 +33,7 @@ const tauschorte = exchangePlacesCollection.map((item) => {
 <Layout metadata={metadata}>
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold mb-8 border-b pb-4 motion-safe:md:intersect:animate-fade">Tauschorte</h1>
-    <Button variant="secondary" class={`md:px-3 px-3 mr-2 w-full mb-6`} href="#map-section">Zur Karte</Button>
+    <Button variant="secondary" class={`md:px-3 px-3 mr-2 w-full mb-6 motion-safe:md:intersect:animate-fade`} href="#map-section">Zur Karte</Button>
 
     <div id="list-section" class="space-y-8 motion-safe:md:intersect:animate-fade">
       {
@@ -61,7 +61,7 @@ const tauschorte = exchangePlacesCollection.map((item) => {
         ))
       }
     </div>
-    <div id="map-section" class="mt-6">
+    <div id="map-section" class="mt-6 motion-safe:md:intersect:animate-fade">
       <Map
         markers={tauschorte.map((ort) => ({
           lat: ort.latitude,
