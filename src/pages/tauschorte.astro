@@ -41,8 +41,16 @@ const tauschorte = exchangePlacesCollection.map((item) => {
           <div id={`section-${ort.api_key}`} class="p-6 border rounded-lg shadow-md">
             <h2 class="text-2xl font-semibold mb-2" set:html={ort.name} />
             <h3 class="font-semibold mb-1">Adresse</h3>
-            <p class="mb-2" set:html={ort.address} />
-
+            <p class="mb-2">
+              {ort.address}
+              <Button
+                variant="secondary"
+                href={`https://www.bahn.de/buchung/start#?ZO=${encodeURIComponent(ort.address)}`}
+                class="scale-[0.7] m-0"
+              >
+                Mit der Bahn anreisen
+              </Button>
+            </p>
             <div class="mb-4">
               <h3 class="font-semibold mb-1">Öffnungszeiten</h3>
               <p set:html={ort.opening_hours} />
@@ -86,16 +94,16 @@ const tauschorte = exchangePlacesCollection.map((item) => {
             <h3 class="font-semibold mb-2">Verfügbare Geschenkkarten</h3>
             <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-4">
             ${Object.entries(info.gift_cards)
-            .map(
-              ([card, { amount }]) => `
+              .map(
+                ([card, { amount }]) => `
               <div class="border rounded-lg p-3 mb-4 shadow hover:shadow-md transition">
                 <p class="font-semibold">${card.toUpperCase()}</p>
                 <p class="mt-2">${amount} ${amount === 1 ? 'Gutschein' : 'Gutscheine'}</p>
               </div>
-            `
-            )
-            .join('')}
-            </div>
+              `
+              )
+              .join('')}
+              </div>
             <p class="text-sm">zuletzt aktualisiert am ${new Date(info.updated_at).toLocaleDateString('de-DE')}</p>
           `;
         } else {
