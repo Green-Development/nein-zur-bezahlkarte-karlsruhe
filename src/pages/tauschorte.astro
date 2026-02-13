@@ -12,6 +12,7 @@ const metadata = {
 const exchangePlacesCollection = await getCollection('exchangePlaces');
 const tauschorte = exchangePlacesCollection.map((item) => {
   const {
+    active: active,
     Name: title,
     Adresse: address,
     Öffnungszeiten: opening_hours,
@@ -20,6 +21,7 @@ const tauschorte = exchangePlacesCollection.map((item) => {
     longitude: longitude,
   } = item.data.properties;
   return {
+    active: active.checkbox,
     name: notionTextToString(title.title),
     address: notionTextToString(address.rich_text),
     opening_hours: notionTextToString(opening_hours.rich_text),
@@ -27,7 +29,7 @@ const tauschorte = exchangePlacesCollection.map((item) => {
     latitude: latitude.number,
     longitude: longitude.number,
   };
-});
+}).filter((ort) => ort.active);
 ---
 
 <Layout metadata={metadata}>
