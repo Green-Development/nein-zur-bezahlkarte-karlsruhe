@@ -2,17 +2,16 @@
 // Analytics component to include Plausible analytics script
 ---
 
-<script async is:inline src="/js/plausible.js"></script>
+<script
+  async
+  is:inline
+  data-domain="nein-zur-bezahlkarte-karlsruhe.de"
+  data-api="https://analytics.project-insanity.org/api/event"
+  src="/js/plausible.js"></script>
 <script>
-  ((window.plausible =
+  window.plausible =
     window.plausible ||
     function () {
       (window.plausible.q = window.plausible.q || []).push(arguments);
-    }),
-    (window.plausible.init =
-      window.plausible.init ||
-      function (i) {
-        window.plausible.o = i || {};
-      }));
-  window.plausible.init();
-</script>
+    };
+</script>^
