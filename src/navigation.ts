@@ -37,6 +37,10 @@ export const headerData = {
       ],
     },
     {
+      text: 'Über uns',
+      href: getPermalink('/ueber-uns/'),
+    },
+    {
       text: 'Kontakt',
       href: getPermalink('/kontakt/'),
     },
